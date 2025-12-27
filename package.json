@@ -9,6 +9,9 @@
     "preview": "serve dist"
   },
   "devDependencies": {
+    "@commitlint/cli": "20.2.0",
+    "@commitlint/config-conventional": "20.2.0",
+    "@commitlint/types": "20.2.0",
     "@types/node": "^24.10.1",
     "serve": "^14.2.5",
     "typescript": "~5.9.3",
