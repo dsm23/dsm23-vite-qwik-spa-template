@@ -1,0 +1,68 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    "group:jsUnitTest",
+    "group:vite",
+    "helpers:pinGitHubActionDigestsToSemver",
+    "security:openssf-scorecard",
+    ":approveMajorUpdates",
+    ":enableVulnerabilityAlerts",
+    ":pinAllExceptPeerDependencies"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)prettier.config.js$/"],
+      "depNameTemplate": "typescript",
+      "datasourceTemplate": "npm",
+      "matchStrings": [
+        "\\/\\/ renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?\\s+importOrderTypeScriptVersion\\s*\\:\\s*[\"']?(?<currentValue>.+?)[\"']"
+      ]
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)unit-testing.yml$/"],
+      "depNameTemplate": "dawidd6/action-download-artifact",
+      "datasourceTemplate": "github-releases",
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?\\s+uses\\:\\s*dawidd6\\/action-download-artifact@(?<currentDigest>[A-Za-z0-9]*)\\s+#\\s+(?<currentValue>.+?)\\s+"
+      ]
+    }
+  ],
+  "packageRules": [
+    {
+      "extends": ["packages:eslint"],
+      "groupName": "eslint packages"
+    },
+    {
+      "groupName": "prettier packages",
+      "matchPackageNames": ["prettier**", "@ianvs/prettier-plugin-sort-imports"]
+    },
+    {
+      "extends": ["packages:stylelint"],
+      "groupName": "stylelint packages"
+    },
+    {
+      "groupName": "playwright monorepo",
+      "matchPackageNames": [
+        "playwright",
+        "@playwright/test",
+        "mcr.microsoft.com/playwright"
+      ]
+    },
+    {
+      "groupName": "storybook monorepo",
+      "matchPackageNames": [
+        "@storybook/**",
+        "eslint-plugin-storybook",
+        "storybook"
+      ]
+    }
+  ],
+  "patch": {
+    "rebaseWhen": "behind-base-branch"
+  },
+  "rebaseWhen": "conflicted",
+  "osvVulnerabilityAlerts": true
+}
