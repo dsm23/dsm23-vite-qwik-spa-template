@@ -1,11 +1,12 @@
-import { component$, useSignal } from '@builder.io/qwik'
+import { component$, useSignal } from "@builder.io/qwik";
+import qwikLogo from "./assets/qwik.svg";
 
-import qwikLogo from './assets/qwik.svg'
-import viteLogo from '/vite.svg'
-import './app.css'
+import viteLogo from "/vite.svg";
+
+import "./app.css";
 
 export const App = component$(() => {
-  const count = useSignal(0)
+  const count = useSignal(0);
 
   return (
     <>
@@ -25,5 +26,5 @@ export const App = component$(() => {
         Click on the Vite and Qwik logos to learn more
       </p>
     </>
-  )
-})
+  );
+});

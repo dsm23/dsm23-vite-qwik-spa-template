@@ -6,13 +6,19 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "fmt": "prettier . --write",
+    "fmt.check": "prettier . --check",
     "preview": "serve dist"
   },
   "devDependencies": {
     "@commitlint/cli": "20.2.0",
     "@commitlint/config-conventional": "20.2.0",
     "@commitlint/types": "20.2.0",
+    "@ianvs/prettier-plugin-sort-imports": "4.7.0",
     "@types/node": "24.10.1",
+    "prettier": "3.7.4",
+    "prettier-plugin-css-order": "2.1.2",
+    "prettier-plugin-tailwindcss": "0.7.2",
     "serve": "14.2.5",
     "typescript": "5.9.3",
     "vite": "7.2.4"
