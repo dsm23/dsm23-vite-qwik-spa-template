@@ -12,12 +12,12 @@
     "@commitlint/cli": "20.2.0",
     "@commitlint/config-conventional": "20.2.0",
     "@commitlint/types": "20.2.0",
-    "@types/node": "^24.10.1",
-    "serve": "^14.2.5",
-    "typescript": "~5.9.3",
-    "vite": "^7.2.4"
+    "@types/node": "24.10.1",
+    "serve": "14.2.5",
+    "typescript": "5.9.3",
+    "vite": "7.2.4"
   },
   "dependencies": {
-    "@builder.io/qwik": "^1.17.2"
+    "@builder.io/qwik": "1.17.2"
   }
 }
