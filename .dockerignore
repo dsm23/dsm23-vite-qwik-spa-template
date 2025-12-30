@@ -1,0 +1,9 @@
+*
+!public/
+!nginx/
+!src/
+!index.html
+!package.json
+!pnpm-lock.yaml
+!tsconfig.*
+!vite.config.ts
